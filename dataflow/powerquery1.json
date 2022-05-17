@@ -1,0 +1,10 @@
+{
+	"name": "powerquery1",
+	"properties": {
+		"description": "cheking power query",
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": []
+		}
+	}
+}
