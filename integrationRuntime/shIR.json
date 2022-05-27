@@ -1,7 +1,0 @@
-{
-	"name": "shIR",
-	"properties": {
-		"type": "SelfHosted",
-		"description": "self hosted integration run time"
-	}
-}
