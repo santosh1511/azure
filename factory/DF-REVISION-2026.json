@@ -1,0 +1,15 @@
+{
+	"name": "DF-REVISION-2026",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "94a424f3-2bb2-45cd-91a7-7f94064c5b83",
+		"tenantId": "888d4993-d6aa-43d6-b31e-5c6c5c5b0edc"
+	}
+}
