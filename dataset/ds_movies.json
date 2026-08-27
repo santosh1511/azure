@@ -1,0 +1,91 @@
+{
+	"name": "ds_movies",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_lnk",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "FilmID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Title",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ReleaseDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "DirectorID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "StudioID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Review",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CountryID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "LanguageID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "GenreID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RunTimeMinutes",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "CertificateID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BudgetDollars",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "BoxOfficeDollars",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "OscarNominations",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "OscarWins",
+				"type": "tinyint",
+				"precision": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Film"
+		}
+	}
+}
