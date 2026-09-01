@@ -1,0 +1,20 @@
+{
+	"name": "az_source_all",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "asd_linktodb",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"s_schemaName": {
+				"type": "string"
+			},
+			"s_tablename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
