@@ -1,0 +1,17 @@
+{
+	"name": "sont_onprem",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_lnk",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sink_t": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}

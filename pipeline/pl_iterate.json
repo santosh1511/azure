@@ -45,24 +45,90 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('lkp_azure').output",
+						"value": "@activity('lkp_azure').output.value",
 						"type": "Expression"
 					},
 					"isSequential": false,
 					"activities": [
 						{
-							"name": "Wait1",
-							"type": "Wait",
+							"name": "Copy data1",
+							"type": "Copy",
 							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
 							"userProperties": [],
 							"typeProperties": {
-								"waitTimeInSeconds": 1
-							}
+								"source": {
+									"type": "AzureSqlSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "SqlServerSink",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": false,
+									"tableOption": "autoCreate"
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceTableAll",
+									"type": "DatasetReference",
+									"parameters": {
+										"sourceT": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "sont_onprem",
+									"type": "DatasetReference",
+									"parameters": {
+										"sink_t": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
+								}
+							]
 						}
 					]
 				}
 			}
 		],
+		"parameters": {
+			"p_source": {
+				"type": "string"
+			},
+			"p_sink": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"sourcetablename": {
+				"type": "String"
+			},
+			"sinktablename": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
