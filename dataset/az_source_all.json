@@ -7,10 +7,12 @@
 		},
 		"parameters": {
 			"s_schemaName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "dbo"
 			},
 			"s_tablename": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "BuildVersion"
 			}
 		},
 		"annotations": [],
