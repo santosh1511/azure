@@ -66,14 +66,12 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"queryTimeout": "02:00:00",
-									"isolationLevel": "ReadCommitted",
 									"partitionOption": "None"
 								},
 								"sink": {
 									"type": "SqlServerSink",
 									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": false,
-									"tableOption": "autoCreate"
+									"sqlWriterUseTableLock": false
 								},
 								"enableStaging": false,
 								"translator": {
