@@ -18,13 +18,13 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select name from sys.tables where type='U'",
+						"sqlReaderQuery": "SELECT \n    s.name AS [SchemaName],\n    t.name AS [TableName]\nFROM sys.tables t\nINNER JOIN sys.schemas s \n    ON t.schema_id = s.schema_id\n where type='U' ORDER BY [SchemaName], [TableName]",
 						"queryTimeout": "02:00:00",
 						"isolationLevel": "ReadCommitted",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "ds_lkp_azure",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -48,7 +48,7 @@
 						"value": "@activity('lkp_azure').output.value",
 						"type": "Expression"
 					},
-					"isSequential": false,
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "Copy data1",
@@ -63,51 +63,8 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"source": {
-									"type": "AzureSqlSource",
-									"queryTimeout": "02:00:00",
-									"partitionOption": "None"
-								},
-								"sink": {
-									"type": "SqlServerSink",
-									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": false,
-									"tableOption": "autoCreate"
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "SourceTableAll",
-									"type": "DatasetReference",
-									"parameters": {
-										"sourceT": {
-											"value": "@item()",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "sont_onprem",
-									"type": "DatasetReference",
-									"parameters": {
-										"sink_t": {
-											"value": "@item()",
-											"type": "Expression"
-										}
-									}
-								}
-							]
+								"enableStaging": false
+							}
 						}
 					]
 				}

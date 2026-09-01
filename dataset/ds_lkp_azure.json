@@ -1,0 +1,16 @@
+{
+	"name": "ds_lkp_azure",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "asd_linktodb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SalesLT",
+			"table": "Address"
+		}
+	}
+}
