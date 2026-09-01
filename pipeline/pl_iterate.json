@@ -104,7 +104,17 @@
 							"outputs": [
 								{
 									"referenceName": "onprem_tables",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"d_schema": {
+											"value": "@item().SchemaName",
+											"type": "Expression"
+										},
+										"d_table": {
+											"value": "@item().TableName",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
