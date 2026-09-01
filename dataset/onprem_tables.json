@@ -5,6 +5,16 @@
 			"referenceName": "SqlServer_lnk",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"d_schema": {
+				"type": "string",
+				"defaultValue": "dbo"
+			},
+			"d_table": {
+				"type": "string",
+				"defaultValue": "BuildVersion"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": []
